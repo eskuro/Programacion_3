@@ -1,11 +1,13 @@
 ﻿import "bootstrap/dist/css/bootstrap.min.css"
 import 'styled-components'
 import md5 from "md5"
-import { redirect ,useNavigate} from "react-router-dom";
+import { redirect ,useNavigate, useLocation} from "react-router-dom";
 import { } from "reactstrap";
 import Cookies from "universal-cookie";
 import { iniciarsesion } from "../../Servicios/UsuariosServicio"
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import RutasProtegidas from "../../Componentes/RutasProtegidas";
+
 
 const modelousuario =
 {
@@ -14,10 +16,13 @@ const modelousuario =
 }
 
 
-export default function Login(props)
+export default function Login()
 {
+
+
     const navigate = useNavigate();
-    const [usuario, setusuario] = useState(modelousuario)
+    const location = useLocation();
+    const [usuario, setusuario] = useState(modelousuario);
     const cookies = new Cookies();
     const actualizarData = (e) =>
     {
@@ -28,19 +33,35 @@ export default function Login(props)
             });
     }
 
+    useEffect(() => {
+
+
+        console.log(cookies.get('username'));
+        if (cookies.get('username')) {
+            navigate("/index");
+        }
+
+
+
+    }, [])
+
+
     const iniciosesion = async () =>
     {
+        
+     
         const response = await iniciarsesion(usuario.username, usuario.password);
         if (response.length > 0) {
+            var respuesta = response[0];
 
-            cookies.set('usuarioId', response.usuarioId, { path: '/' });
-            cookies.set('username', response.username, { path: '/' });
-            cookies.set('usuarioApellido', response.usuarioApellido, { path: '/' });
-            cookies.set('usuarioNombre', response.usuarioNombre, { path: '/' });
-            cookies.set('password', response.password, { path: '/' });
-            alert("BUENAS PAPU" + response.username)
-            navigate("/index");
-           
+            cookies.set('usuarioId', respuesta.usuarioId, { path: '/' });
+            cookies.set('username', respuesta.username, { path: '/' });
+            cookies.set('usuarioApellido', respuesta.usuarioApellido, { path: '/' });
+            cookies.set('usuarioNombre', respuesta.usuarioNombre, { path: '/' });
+            cookies.set('password', respuesta.password, { path: '/' });
+            console.log(cookies.get('username'))
+            navigate("/index")
+
 
         } else
         {
@@ -48,7 +69,8 @@ export default function Login(props)
         }
         
     }
-
+   
+    
 
     return (
 
@@ -72,11 +94,14 @@ export default function Login(props)
                 ></input>
                 <br />
                 <button className="btn btn-primary"
-                    onClick={()=>iniciosesion()}
+                    onClick={
+                        () => iniciosesion() 
+                    }
                 >Iniciar Sesion</button>
+               
             </div>
-                
-
+             
+            
         </div>
 
 

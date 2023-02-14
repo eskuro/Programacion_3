@@ -21,7 +21,7 @@ const ModalRubro = () => {
     }, []);
 
     const selectrubro = (e) => {
-        console.log(e.target.value);
+     
         return e.target.value;
 
     }

@@ -24,7 +24,7 @@ export default function ConsultaRubro() {
     useEffect(() => {
         (async () => {
             const data = await mostrarrubro();
-            console.log(data)
+        
             setRubro(data);
         })()
 
@@ -86,7 +86,7 @@ export default function ConsultaRubro() {
                 </div>
                 <div className="col-sm-12">
                     <div className="btn-group">
-                        <Link to="/" className="btn btn-dark"> Atras</Link>
+                        <Link to="/index" className="btn btn-dark"> Atras</Link>
                     </div>
                 </div>
 

@@ -31,7 +31,7 @@ export default function ConsultaProducto()
     useEffect(() => {
         (async () => {
             const data = await mostrarProd();
-            console.log(data)
+          
             setprod(data);
         })()
 
@@ -120,7 +120,7 @@ export default function ConsultaProducto()
                 </div>
                 <div className="col-sm-12">
                     <div className="btn-group">
-                        <Link to="/" className="btn btn-dark"> Atras</Link>
+                        <Link to="/index" className="btn btn-dark"> Atras</Link>
                         </div>
                 </div>
 
