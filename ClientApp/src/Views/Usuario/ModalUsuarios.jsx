@@ -12,7 +12,7 @@ const modeloUsuario =
      password:"",
 }
 
-
+var ReverseMd5 = require('reverse-md5');
 const ModalUsuarios = ({ usuariomodificar, setusuariomodificar, mostraModal, setMostrarModal, guardarUsuario, modificarUsuario }) => {
 
     const [usu, setUsu] = useState(modeloUsuario)
@@ -85,10 +85,14 @@ const ModalUsuarios = ({ usuariomodificar, setusuariomodificar, mostraModal, set
                         <Input name="username" onChange={(e) => actualizarData(e)} value={usu.username} />
                     </FormGroup>
                     <FormGroup>
-                        <Label>
-                            Contraseña:
-                        </Label>
-                        <Input name="password" onChange={(e) => actualizarData(e)} value={usu.password} />
+                        
+                        {
+                            usu.usuarioId == 0 ? <><Label>
+                                Contraseña:
+                            </Label>
+                                <Input name="password" onChange={(e) => actualizarData(e)} value={usu.password} /> </> : <></>
+                        }
+
                     </FormGroup>
                 </Form>
             </ModalBody>

@@ -51,13 +51,13 @@ export default function ConsultaProducto()
 
     const guardarproducto = async(producto) =>
     {
-        await nuevoProducto(producto)
+         await nuevoProducto(producto);
         setMostrarModal(!mostrarModal);
         const data = await mostrarProd();
         setprod(data);
     }
     const modificarproducto = async (producto) => {
-        await modificarprod(producto)
+        await modificarprod(producto);
         setMostrarModal(!mostrarModal);
         const data = await mostrarProd();
         setprod(data);
@@ -76,31 +76,37 @@ export default function ConsultaProducto()
     const columns = [
         {
             name: 'CODIGO',
+            center: true,
             selector: row => row.productoCodigo
         },
         {
             name: 'DESCRIPCION',
+            center: true,
             selector: row => row.productoDesc
         },
         {
             name: 'MARCA',
+            center: true,
             selector: row => row.marcaDesc
         },
         {
             name: 'RUBRO',
+            center: true,
             selector: row => row.rubroDesc
         },
         {
             name: 'PRECIO',
+            center: true,
             selector: row => row.productoPrecio
         },
       
         {
             name: 'Acciones',
+            center: true,
             cell: row => <div className="btn-group">
-                <button className="btn btn-primary" onClick={()=>enviarprodmodificar(row)
+                <button className="btn btn-primary" style={{ fontSizeAdjust: true }, { fontSize: 13 }} onClick={()=>enviarprodmodificar(row)
               }>Modificar</button>
-                <button style={{ marginLeft: 10 }} className="btn btn-danger" onClick={() => eliminarproducto(row.productoId)
+                <button style={{ marginLeft: 10 }, { fontSizeAdjust: true }, { fontSize:13 }} className="btn btn-danger" onClick={() => eliminarproducto(row.productoId)
                 }>Eliminar</button>
 
             </div>
@@ -124,19 +130,19 @@ export default function ConsultaProducto()
 
 
     return (
-        <div className="panel">
+        <div className="panel-fluid" style={{ width: '100%' }}>
             <div className="row">
-                <div className="col-sm-12">
+                <div className="col">
                     <h2 >LISTA PRODUCTOS  </h2>
                     <button onClick={() => setMostrarModal(!mostrarModal)} className="btn btn-success">Agregar Producto</button>
                 </div>
-                <div className="col-sm-12">
+                <div className="col">
                    
                 </div>
 
             </div>
-            <div className="row mt-4">
-                <div className="col-sm-12">
+            <div className="row ">
+               
                     <DataTable
                         columns={columns}
                         data={prod}
@@ -146,7 +152,7 @@ export default function ConsultaProducto()
                     />
 
 
-                </div>
+                
             </div>
            <ModificarProducto
                 mostraModal={mostrarModal}

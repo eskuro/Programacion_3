@@ -3,26 +3,23 @@ import {
     FaTh,
     FaBars,
     FaUserAlt,
-    FaRegChartBar,
+    FaHamburger,
     FaCommentAlt,
-    FaShoppingBag,
+    FaAmazon,
+    FaPowerOff,
+    FaClipboardList
     
 } from "react-icons/fa";
 import { NavLink, redirect, useNavigate, useLocation } from 'react-router-dom';
 import Cookies from "universal-cookie";
 import "../../src/MenuDesp.css"
 import icologin from "../Assets/lambda_logo.svg"
-
-
-
-
-
 const Menu = ({ children }) => {
 
 
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
-
+    
     const cookies = new Cookies();
     const toggle = () => setIsOpen(!isOpen);
     const cerrarsesion = () =>
@@ -66,17 +63,17 @@ const Menu = ({ children }) => {
         {
             path: "/consultaproducto",
             name: "Productos",
-            icon: <FaRegChartBar />
+            icon: <FaClipboardList />
         },
         {
             path: "/consultamarca",
             name: "Marcas",
-            icon: <FaCommentAlt />
+            icon: <FaAmazon />
         },
         {
             path: "/consultarubro",
             name: "Rubros",
-            icon: <FaShoppingBag />
+            icon: <FaHamburger />
         },
         {
             path: "/consultausuario",
@@ -86,7 +83,7 @@ const Menu = ({ children }) => {
         {
             path: "/",
             name: "Cerrar Sesion",
-            icon: <FaUserAlt />
+            icon: <FaPowerOff />
         },
       
     ]
@@ -112,6 +109,11 @@ const Menu = ({ children }) => {
                             <div className="icon">{item.icon}</div>
                             <div style={{ display: isOpen ? "block" : "none" }} className="link_text">{item.name}</div>
                         </NavLink> : 
+                            item.name == "Usuarios" ? cookies.get('username') == "admin" ? <NavLink to={item.path} key={index} className="link" >
+                            <div className="icon">{item.icon}</div>
+                            <div style={{ display: isOpen ? "block" : "none" }} className="link_text">{item.name}</div>
+                            </NavLink> : <></> 
+                                :
                         <NavLink to={item.path} key={index} className="link" >
                             <div className="icon">{item.icon}</div>
                             <div style={{ display: isOpen ? "block" : "none" }} className="link_text">{item.name}</div>

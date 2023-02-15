@@ -36,15 +36,10 @@ const ModificarRubro = ({ rubromodificar, setrubromodificar, mostraModal, setMos
     }
 
     useEffect(() => {
-        (async () => {
-            const data = await mostrarrubro();
-            setrubro(data);
-
-            console.log(data)
-        })()
+      
         if (rubromodificar != null) {
             setrubro(rubromodificar)
-            console.log("entro")
+           
         } else {
             setrubro(modelorubro);
         }
@@ -62,7 +57,7 @@ const ModificarRubro = ({ rubromodificar, setrubromodificar, mostraModal, setMos
         <Modal isOpen={mostraModal}>
             <ModalHeader>
                 {
-                    rubro.rubroId == 0 ? "NuevO Rubro" : "Modificar Rubro"
+                    rubro.rubroId == 0 ? "Nuevo Rubro" : "Modificar Rubro"
                 }
             </ModalHeader>
             <ModalBody>

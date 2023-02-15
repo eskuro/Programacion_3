@@ -8,6 +8,9 @@ import { mostrarusuarios, nuevousuario, modificarusuario, borrarusuario } from "
 
 
 export default function ConsultaUsuarios() {
+
+    
+        
     const estiloTable = {
         headCells: {
             style: {
@@ -19,6 +22,14 @@ export default function ConsultaUsuarios() {
 
             },
         },
+        columns:
+        {
+            style:
+            {
+                backgroundColor:"blue",
+                justifyContent: 'center'
+            }
+        }
 
     }
 
@@ -67,22 +78,28 @@ export default function ConsultaUsuarios() {
     const columns = [
         {
             name: 'NOMBRE',
+            center: true,
             selector: row => row.usuarioNombre
         },
         {
             name: 'APELLIDO',
+            center:true,
             selector: row => row.usuarioApellido
+
         },
         {
             name: 'USUARIO',
-            selector: row => row.username
+            center: true,
+            selector: row => row.username,
+           
         },
         {
             name: 'Acciones',
-            cell: row => <div className="btn-group">
+            center: true,
+            cell: row => <div className="btn-group" style={{ backgroundColor: "blue" }, { paddingLeft:40 }}>
                 <button className="btn btn-primary" onClick={() => enviarusuariomodificar(row)
                 }>Modificar</button>
-                <button style={{ marginLeft: 10 }} className="btn btn-danger" onClick={() => eliminarusuario(row.usuarioId)
+                <button  className="btn btn-danger" onClick={() => eliminarusuario(row.usuarioId)
                 }>Eliminar</button>
 
             </div>
@@ -95,7 +112,7 @@ export default function ConsultaUsuarios() {
 
 
     return (
-        <div className="panel">
+        <div className="panel-fluid" style={{ width: '100%' }}>
             <div className="row">
                 <div className="col-sm-12">
                     <h2 >LISTA PRODUCTOS  </h2>

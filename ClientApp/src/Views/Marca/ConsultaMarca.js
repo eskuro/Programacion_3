@@ -67,7 +67,7 @@ export default function ConsultaMarca()
 
 
     const enviarmarcamodificar = (marcaselect) => {
-        console.log(marcaselect)
+      
         setmarcmodificar(marcaselect);
         setMostrarModal(!mostrarModal)
 
@@ -78,15 +78,17 @@ export default function ConsultaMarca()
      
         {
             name: 'DESCRIPCION',
+            center: true,
             selector: row => row.marcaDesc
         },
            
         {
             name: 'Acciones',
+            center: true,
             cell: row => <div className="btn-group">
                 <button className="btn btn-primary" onClick={() => enviarmarcamodificar(row)
                 }>Modificar</button>
-                <button style={{ marginLeft: 10 }} className="btn btn-danger" onClick={() => eliminarmarca(row.marcaId)
+                <button  className="btn btn-danger" onClick={() => eliminarmarca(row.marcaId)
                 }>Eliminar</button>
 
             </div>
@@ -94,17 +96,17 @@ export default function ConsultaMarca()
         }]
 
     return (
-        <div className="panel">
+        <div className="panel-fluid" style={{ width:'100%' }}>
             <div className="row">
-                <div className="col-sm-12">
+                <div className="col">
                     <h2 >LISTA MARCAS  </h2>
                     <button onClick={() => setMostrarModal(!mostrarModal)} className="btn btn-success">Agregar Marca</button>
                 </div>
               
 
             </div>
-            <div className="row mt-4">
-                <div className="col-sm-12">
+            <div className="row ">
+                <div className="col">
                     <DataTable
                         columns={columns}
                         data={marc}

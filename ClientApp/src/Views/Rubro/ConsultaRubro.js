@@ -77,16 +77,17 @@ export default function ConsultaRubro() {
 
         {
             name: 'DESCRIPCION',
+            center: true,
             selector: row => row.rubroDesc
         },
 
         {
             name: 'Acciones',
-
+            center: true,
             cell: row => <div className="btn-group" style={{ alignContent: "flex-start" }}>
                 <button className="btn btn-primary" onClick={() => enviarrubromodificar(row)
                 }>Modificar</button>
-                <button style={{ marginLeft: 10 }} className="btn btn-danger" onClick={() => eliminarRubro(row.rubroId)
+                <button className="btn btn-danger" onClick={() => eliminarRubro(row.rubroId)
                 }>Eliminar</button>
     
             </div>
@@ -94,10 +95,10 @@ export default function ConsultaRubro() {
         }]
 
     return (
-        <div className="panel" style={{  }}>
+        <div className="panel-fluid" style={{ width: '100%' }}>
             <div className="row">
                 <div className="col-sm-12">
-                    <h2 >LISTA MARCAS  </h2>
+                    <h2 >LISTA RUBROS  </h2>
                     <button onClick={() => setMostrarModal(!mostrarModal)} className="btn btn-success">Agregar Rubro</button>
                 <div className="col-sm-12">
                    

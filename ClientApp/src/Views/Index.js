@@ -13,12 +13,12 @@ const Index = () => {
     const cookies = new Cookies();
     return (
 
-     <>
-         <div className="container" >
-                <div className="col-sm-12">
+        <>
+            <div className="panel" style={{} }>
+                
                     <h2>  Bienvenido : {cookies.get('username')}</h2>
 
-             </div>
+             
 
          </div>
             

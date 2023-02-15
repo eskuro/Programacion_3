@@ -16,7 +16,7 @@ const ModificarMarca = ({ marcmodificar, setmarcmodificar, mostraModal, setMostr
     const [marca, setmarca] = useState(modeloMarca);
 
     const actualizarData = (e) => {
-        console.log(e.target.name + ":" + e.target.value);
+        
         setmarca(
             {
                 ...marca,
@@ -26,7 +26,7 @@ const ModificarMarca = ({ marcmodificar, setmarcmodificar, mostraModal, setMostr
 
     const enviardata = () => {
 
-
+        
         if (marca.marcaId == 0) {
             guardarMarca(marca)
         } else {
@@ -38,18 +38,18 @@ const ModificarMarca = ({ marcmodificar, setmarcmodificar, mostraModal, setMostr
     }
 
     useEffect(() => {
-        (async () => {
-            const data = await mostrarmarca();
-            setmarca(data);
+       
+        console.log("primerlog")
 
-            console.log(data)
-        })()
+        console.log(marcmodificar)
         if (marcmodificar != null) {
             setmarca(marcmodificar)
-            console.log("entro")
+           
         } else {
             setmarca(modeloMarca);
         }
+        console.log("segundolog")
+        console.log(marca);
     }, [marcmodificar])
 
     const cerrarModal = () => {

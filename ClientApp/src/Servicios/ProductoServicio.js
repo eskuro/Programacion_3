@@ -50,7 +50,7 @@ export async function modificarprod(producto)
 
         return await res.json();
     } catch (e) {
-        console.error(e);
+        console.log(e);
     }
 
 }
@@ -76,7 +76,7 @@ export async function borrarprod(idproducto) {
    
         return await res.json();
     } catch (e) {
-        console.error(e);
+        console.log(e);
     }
 
 }

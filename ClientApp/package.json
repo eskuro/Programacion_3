@@ -17,6 +17,7 @@
     "react-router-dom": "^6.6.2",
     "react-scripts": "^5.0.1",
     "reactstrap": "^9.1.5",
+    "reverse-md5": "0.0.5",
     "rimraf": "^3.0.2",
     "styled-components": "^5.3.6",
     "universal-cookie": "^4.0.4",
