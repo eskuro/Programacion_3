@@ -17,6 +17,21 @@ import ModificarRubro from "../Rubro/ModificarRubro";
 
 
 export default function ConsultaRubro() {
+
+    const estiloTable = {
+        headCells: {
+            style: {
+                width:'auto',
+                fontSize: '20px',
+                fontWeight: 'bold',
+                paddingLeft: '0 8px',
+                justifyContent: 'center',
+               
+            },
+        },
+        
+    }
+
     const [mostrarModal, setMostrarModal] = useState(false);
     const [rubro, setRubro] = useState([]);
     const [rubromodificar, setrubromodificar] = useState(null);
@@ -67,41 +82,40 @@ export default function ConsultaRubro() {
 
         {
             name: 'Acciones',
-            cell: row => <div className="btn-group">
-                <button className="btn btn-dark" onClick={() => enviarrubromodificar(row)
+
+            cell: row => <div className="btn-group" style={{ alignContent: "flex-start" }}>
+                <button className="btn btn-primary" onClick={() => enviarrubromodificar(row)
                 }>Modificar</button>
-                <button style={{ marginLeft: 10 }} className="btn btn-dark" onClick={() => eliminarRubro(row.rubroId)
+                <button style={{ marginLeft: 10 }} className="btn btn-danger" onClick={() => eliminarRubro(row.rubroId)
                 }>Eliminar</button>
-
+    
             </div>
-
+            
         }]
 
     return (
-        <div className="panel">
+        <div className="panel" style={{  }}>
             <div className="row">
                 <div className="col-sm-12">
                     <h2 >LISTA MARCAS  </h2>
-                    <button onClick={() => setMostrarModal(!mostrarModal)}>Nuevo Producto</button>
-                </div>
+                    <button onClick={() => setMostrarModal(!mostrarModal)} className="btn btn-success">Agregar Rubro</button>
                 <div className="col-sm-12">
-                    <div className="btn-group">
-                        <Link to="/index" className="btn btn-dark"> Atras</Link>
+                   
                     </div>
                 </div>
 
             </div>
-            <div className="row mt-4">
-                <div className="col-sm-12">
+            <div className="row ">
+                
                     <DataTable
                         columns={columns}
                         data={rubro}
                         pagination
-
+                        customStyles={estiloTable}
                     />
 
 
-                </div>
+                
             </div>
             <ModificarRubro
                 mostraModal={mostrarModal}

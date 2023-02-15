@@ -7,10 +7,9 @@ import ConsultaMarca from "./Views/Marca/ConsultaMarca"
 import ConsultaRubro from "./Views/Rubro/ConsultaRubro"
 import Index from "./Views/Index";
 import Login from "./Views/Usuario/Login"
-import { useAuth } from "./Rutas"
-import RutasProtegidas  from "../src/Componentes/RutasProtegidas";
 import Menu from "../src/Componentes/Menu"
-import "../src/MenuDesp.css"
+import ConsultaUsuarios from "../src/Views/Usuario/ConsultaUsuarios"
+
 
 
 
@@ -39,7 +38,10 @@ const App = () =>
 
                     <ConsultaRubro />
                 </Menu>}></Route>
+                <Route exact path="/consultausuario" element={<Menu >
 
+                    <ConsultaUsuarios />
+                </Menu>}></Route>
          
 
 

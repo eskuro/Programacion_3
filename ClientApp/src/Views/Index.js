@@ -10,38 +10,19 @@ import React, { Component, useEffect } from "react"
 
 const Index = () => {
 
-   
+    const cookies = new Cookies();
     return (
 
-            <>
+     <>
+         <div className="container" >
+                <div className="col-sm-12">
+                    <h2>  Bienvenido : {cookies.get('username')}</h2>
 
-          <div className="container" >
+             </div>
 
-                <h1>Pagina PRINCIPAL</h1>
-
-                <div className="container mt-5">
-                    <div className="btn-group">
-                        <Link to="/consultaproducto" className="btn btn-dark">
-                            Consulta Producto
-                        </Link>
-
-                        <Link to="/consultamarca" className="btn btn-dark">
-                            Consulta Marca
-                        </Link>
-                        <Link to="/consultarubro" className="btn btn-dark">
-                            Consulta Marca
-                        </Link>
-                    </div>
-
-                </div>
-                <div className="container mt-5">
-
-
-                </div>
-
-            </div>
+         </div>
             
-            </>
+     </>
     );
 }
 

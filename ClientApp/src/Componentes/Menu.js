@@ -5,11 +5,13 @@ import {
     FaUserAlt,
     FaRegChartBar,
     FaCommentAlt,
-    FaShoppingBag
+    FaShoppingBag,
+    
 } from "react-icons/fa";
 import { NavLink, redirect, useNavigate, useLocation } from 'react-router-dom';
 import Cookies from "universal-cookie";
-
+import "../../src/MenuDesp.css"
+import icologin from "../Assets/lambda_logo.svg"
 
 
 
@@ -77,6 +79,11 @@ const Menu = ({ children }) => {
             icon: <FaShoppingBag />
         },
         {
+            path: "/consultausuario",
+            name: "Usuarios",
+            icon: <FaUserAlt />
+        },
+        {
             path: "/",
             name: "Cerrar Sesion",
             icon: <FaUserAlt />
@@ -90,7 +97,11 @@ const Menu = ({ children }) => {
         <div className="container">
             <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
                 <div className="top_section">
-                    <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">Logo</h1>
+                    <div style={{ display: isOpen ? "block" : "none" }} className="logo" >
+                        <img src={icologin}
+                            alt="username-icon"
+                            style={{ height: 65 }} />
+                    </div>
                     <div style={{ marginLeft: isOpen ? "50px" : "0px" }} className="bars">
                         <FaBars onClick={toggle} />
                     </div>

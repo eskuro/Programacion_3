@@ -16,7 +16,19 @@ import ModificarProducto from "./ModificarProducto";
 
 export default function ConsultaProducto()
 {
+    const estiloTable = {
+        headCells: {
+            style: {
+                width: 'auto',
+                fontSize: '20px',
+                fontWeight: 'bold',
+                paddingLeft: '0 8px',
+                justifyContent: 'center',
 
+            },
+        },
+
+    }
 
     const [prod, setprod] = useState([]);
     const [prodmodificar, setprodmodificar] = useState(null);
@@ -86,9 +98,9 @@ export default function ConsultaProducto()
         {
             name: 'Acciones',
             cell: row => <div className="btn-group">
-                <button className="btn btn-dark" onClick={()=>enviarprodmodificar(row)
+                <button className="btn btn-primary" onClick={()=>enviarprodmodificar(row)
               }>Modificar</button>
-                <button style={{ marginLeft: 10 }} className="btn btn-dark" onClick={() => eliminarproducto(row.productoId)
+                <button style={{ marginLeft: 10 }} className="btn btn-danger" onClick={() => eliminarproducto(row.productoId)
                 }>Eliminar</button>
 
             </div>
@@ -116,12 +128,10 @@ export default function ConsultaProducto()
             <div className="row">
                 <div className="col-sm-12">
                     <h2 >LISTA PRODUCTOS  </h2>
-                    <button onClick={() =>  setMostrarModal(!mostrarModal)}>Nuevo Producto</button>
+                    <button onClick={() => setMostrarModal(!mostrarModal)} className="btn btn-success">Agregar Producto</button>
                 </div>
                 <div className="col-sm-12">
-                    <div className="btn-group">
-                        <Link to="/index" className="btn btn-dark"> Atras</Link>
-                        </div>
+                   
                 </div>
 
             </div>
@@ -131,7 +141,8 @@ export default function ConsultaProducto()
                         columns={columns}
                         data={prod}
                         pagination
-                      
+                        customStyles={estiloTable}
+
                     />
 
 

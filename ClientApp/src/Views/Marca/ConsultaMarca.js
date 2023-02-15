@@ -18,6 +18,21 @@ import ModificarMarca from "./ModificarMarca";
 
 export default function ConsultaMarca()
 {
+    const estiloTable = {
+        headCells: {
+            style: {
+                width: 'auto',
+                fontSize: '20px',
+                fontWeight: 'bold',
+                paddingLeft: '0 8px',
+                justifyContent: 'center',
+
+            },
+        },
+
+    }
+
+
     const [mostrarModal, setMostrarModal] = useState(false);
     const [marc, setmarc] = useState([]);
     const [marcmodificar, setmarcmodificar] = useState(null);
@@ -94,6 +109,7 @@ export default function ConsultaMarca()
                         columns={columns}
                         data={marc}
                         pagination
+                        customStyles={estiloTable}
 
                     />
 
